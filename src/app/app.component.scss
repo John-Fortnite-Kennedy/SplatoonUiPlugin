@@ -1,0 +1,282 @@
+
+img{
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+.cross{
+    stroke: #D42020;
+    stroke-dasharray: 1000;
+}
+
+*{
+    position: relative;
+}
+
+.holder{
+    width: 100%;
+    min-width: 100vw;
+    max-height: 100vh;
+    height: 100%;
+    transform: rotate(-2.5deg);
+    
+
+    .wins{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #3D3236;
+        //background-image: url("/assets/splatoon.png");
+        //background-size: contain;
+        //background-position: top right;
+        //background-repeat: no-repeat;
+        
+        border-radius: 1.5rem 1.5rem 1.5rem 0rem;
+        padding: 1.25rem 0.5rem ;
+        width: 25%;
+        min-width: 25vw;
+        margin-top: 47%;
+        margin-left: 47%;
+        box-shadow: 9px 13px 8px 0px rgba(34, 60, 80, 0.2);
+        
+    
+        .win{
+            width: 5em;
+            height: 5em;
+            //background-color: grey;
+            //border-radius: 50%;
+            //border-style: dashed;
+            //border-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;            
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0);
+                  }
+                  100% {
+                    transform: rotate(360deg);
+                  }
+              }
+
+            .empty{
+                width: 90%;
+                animation: 50s infinite rotate;
+                animation-timing-function: linear;
+                animation-delay: 0s;
+            }
+
+            
+        }
+
+        .inked{
+            .splat{
+                width: 100%;
+            }
+
+            .empty{
+                display: none;
+            }
+        }
+
+        .blank{
+            
+            .splat{
+                display: none;
+            }
+
+        }
+    }
+
+    .lifes{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #3D3236;
+        border-radius: 0rem 0rem 1.5rem 1.5rem;
+        margin-top: -1%;
+        padding: 0rem 0.5rem;
+        padding-bottom: 1rem;
+        width: 12.5%;
+        margin-left: 47%;
+        box-shadow: 9px 13px 8px 0px rgba(34, 60, 80, 0.2);
+        
+        
+        @keyframes tilt {
+            0% {
+                transform: rotate(0);
+              }
+              25% {
+                transform: rotate(10deg);
+              }
+              50% {
+                transform: rotate(0deg);
+              }
+              75% {
+                transform: rotate(-10deg);
+              }
+              100% {
+                transform: rotate(0deg);
+              }
+          }
+    
+        .life{
+            width: 3rem;
+            height: 3rem;
+            //background-color: blue;
+            animation: 5s infinite tilt;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+
+            .cross{
+                display: none;
+            }
+        }
+
+        .loss{
+            width: 3rem;
+            height: 3rem;
+            
+            svg path{
+                fill:grey;
+            }
+        }
+    }
+}
+.over{
+    position:absolute;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.overlay{
+    width: 100vw;
+    height:100vh;
+    position:absolute;
+    left:0;
+    top:0;
+    display: flex;
+    justify-content: center;
+
+    @keyframes wrap1 {
+        0% {
+            transform: rotate(-15deg) translateX(-100%);
+          }
+          10% {
+            transform: rotate(-15deg)
+          }
+          80%{
+            transform: rotate(-15deg)
+          }
+          100% {
+            transform: rotate(-15deg) translateX(-200%);
+          }
+    }
+    
+    @keyframes wrap2 {
+        0% {
+            transform: rotate(15deg) translateX(-100%);
+        }
+        10% {
+            transform: rotate(15deg)
+        }
+        80%{
+            transform: rotate(15deg)
+          }
+          100% {
+            transform: rotate(15deg) translateX(-200%);
+          }
+    }
+
+    @keyframes wrap3 {
+        0% {
+            transform-origin: right;
+            transform: rotate(3deg) translateX(100%);
+        }
+        10% {
+            transform-origin: right;
+            transform: rotate(3deg)
+        }
+        80%{
+            transform-origin: right;
+            transform: rotate(3deg)
+          }
+          100% {
+            transform-origin: right;
+            transform: rotate(3deg) translateX(200%);
+          }
+    }
+
+    @keyframes wrap4 {
+        0% {
+            transform-origin: right;
+            transform: rotate(-10deg) translateX(100%);
+        }
+        10% {
+            transform-origin: right;
+            transform: rotate(-10deg)
+        }
+        80%{
+            transform-origin: right;
+            transform: rotate(-10deg)
+          }
+          100% {
+            transform-origin: right;
+            transform: rotate(-10deg) translateX(200%);
+          }
+    }
+
+    .wrap1{
+        animation: wrap1 3.2s linear;
+        transform: rotate(-15deg);
+        height: 10%;
+        top:30%;
+        font-size: 500%;
+    }
+
+    .wrap2{
+        animation: wrap2 3.35s linear;
+        transform: rotate(15deg);
+        height: 9%;
+        top:40%;
+        font-size: 500%;
+    }
+
+    .wrap3{
+        animation: wrap3 3.25s linear;
+        transform: rotate(3deg);
+        height: 8%;
+        top:80%;
+        font-size: 400%;
+    }
+
+    .wrap4{
+        animation: wrap4 3.3s linear;
+        transform: rotate(-10deg);
+        height: 10%;
+        top:50%;
+        font-size: 500%;
+    }
+
+    .wrap{
+        border-bottom: 1px rgb(35,209,148) solid;
+        background: linear-gradient(0deg, rgba(35,209,148,1) 0%, rgba(37,188,156,1) 47%, rgba(121,236,232,1) 100%);
+        width: 150%;
+        position: absolute;
+        font-family: Splatoon2;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: space-evenly;
+        box-shadow: 0px 22px 8px 0px rgba(255, 255, 255, 0.3) inset;
+        box-shadow: 0px 25px 44px -26px rgba(0, 0, 0, 0.9);
+        filter: blur(0.01rem);
+    }
+
+    .hidden{
+        display: none;
+    }
+}
